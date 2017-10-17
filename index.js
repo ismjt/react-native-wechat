@@ -253,7 +253,7 @@ export function shareToFavorite(data) {
  * @param {String} data.sign
  * @returns {Promise}
  */
-export function pay(data) {
+/*export function pay(data) {
   // FIXME(Yorkie): see https://github.com/yorkie/react-native-wechat/issues/203
   // Here the server-side returns params in lowercase, but here SDK requires timeStamp
   // for compatibility, we make this correction for users.
@@ -284,7 +284,7 @@ export function pay(data) {
       }
     });
   });
-}
+}*/
 
 /**
  * promises will reject with this error when API call finish with an errCode other than zero.

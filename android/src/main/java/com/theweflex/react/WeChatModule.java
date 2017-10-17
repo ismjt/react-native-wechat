@@ -37,8 +37,8 @@ import com.tencent.mm.sdk.modelmsg.WXMusicObject;
 import com.tencent.mm.sdk.modelmsg.WXTextObject;
 import com.tencent.mm.sdk.modelmsg.WXVideoObject;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
-import com.tencent.mm.sdk.modelpay.PayReq;
-import com.tencent.mm.sdk.modelpay.PayResp;
+// import com.tencent.mm.sdk.modelpay.PayReq;
+// import com.tencent.mm.sdk.modelpay.PayResp;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
@@ -182,7 +182,7 @@ public class WeChatModule extends ReactContextBaseJavaModule implements IWXAPIEv
         _share(SendMessageToWX.Req.WXSceneFavorite, data, callback);
     }
 
-    @ReactMethod
+    /*@ReactMethod
     public void pay(ReadableMap data, Callback callback){
         PayReq payReq = new PayReq();
         if (data.hasKey("partnerId")) {
@@ -208,7 +208,7 @@ public class WeChatModule extends ReactContextBaseJavaModule implements IWXAPIEv
         }
         payReq.appId = appId;
         callback.invoke(api.sendReq(payReq) ? null : INVOKE_FAILED);
-    }
+    }*/
 
     private void _share(final int scene, final ReadableMap data, final Callback callback) {
         Uri uri = null;
@@ -490,11 +490,12 @@ public class WeChatModule extends ReactContextBaseJavaModule implements IWXAPIEv
         } else if (baseResp instanceof SendMessageToWX.Resp) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) (baseResp);
             map.putString("type", "SendMessageToWX.Resp");
-        } else if (baseResp instanceof PayResp) {
+        }
+        /* else if (baseResp instanceof PayResp) {
             PayResp resp = (PayResp) (baseResp);
             map.putString("type", "PayReq.Resp");
             map.putString("returnKey", resp.returnKey);
-        }
+        }*/
 
         this.getReactApplicationContext()
                 .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
